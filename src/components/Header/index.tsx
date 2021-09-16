@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import headerImage from '../../images/planets.jpg';
+import headerImage from '../../shared/assets/images/planets.jpg';
 import { ModeView } from './components/ModeView';
 import { SearchPlanet } from './components/SearchPlanet';
 

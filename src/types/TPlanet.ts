@@ -1,4 +1,4 @@
-type TPlanets = {
+type TPlanet = {
   name: string;
   rotation_period: number;
   orbital_period: string;
@@ -15,4 +15,4 @@ type TPlanets = {
   url: string;
 };
 
-export default TPlanets;
+export default TPlanet;

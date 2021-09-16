@@ -1,0 +1,54 @@
+const planetsImages = [
+  [
+    'https://static.wikia.nocookie.net/ptstarwars/images/8/82/Tatooine-TOR.jpg',
+    'https://super.abril.com.br/wp-content/uploads/2016/12/tatooine.png',
+    'https://cdna.artstation.com/p/assets/images/images/033/575/452/large/felipe-coelho-tatooine-editado.jpg?1609994598',
+  ],
+  [
+    'https://static.wikia.nocookie.net/ptstarwars/images/a/a9/Alderaan_2.jpg',
+    'http://2.bp.blogspot.com/-93P_E0INj5U/VjPSvWm8KnI/AAAAAAAAJkE/w8O72v9PFic/s1600/Alderaan-680x383.jpg',
+    'https://lumiere-a.akamaihd.net/v1/images/databank_alderaan_01_169_4a5264e2.jpeg?region=0%2C0%2C1560%2C878&width=960',
+  ],
+  [
+    'https://static.wikia.nocookie.net/ptstarwars/images/a/a0/Eaw_Yavin4.jpg',
+    'https://cdna.artstation.com/p/assets/images/images/008/873/196/large/felicien-nourry-templef3.jpg?1515810161&dl=1',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC5xyVXrJNUi5eRWACD2aR_QYLIKTiSogx5g&usqp=CAU',
+  ],
+  [
+    'https://static.wikia.nocookie.net/ptstarwars/images/b/b1/Csilla.png',
+    'https://en.es-static.us/upl/2017/03/hoth-star-wars.jpg',
+    'https://fortnite-island-screenshots-live-cdn.ol.epicgames.com/screenshots%2F1105-0474-2463.png',
+  ],
+  [
+    'https://static.wikia.nocookie.net/ptstarwars/images/a/a9/Alderaan_2.jpg',
+    'http://pm1.narvii.com/6314/40f8a155a47e0032bc9ab0a9f84ff798b1cdc02e_00.jpg',
+    'https://t.ctcdn.com.br/h6DNS7vzfcyGbOdTyIwKrObM--I=/660x0/smart/i158459.jpeg',
+  ],
+  [
+    'https://static.wikia.nocookie.net/starwars/images/1/11/Bespin-SWCT.png',
+    'https://i.ytimg.com/vi/X3v6TwosjIc/maxresdefault.jpg',
+    'https://i.redd.it/olnyltcj0h931.png',
+  ],
+  [
+    'https://static.wikia.nocookie.net/starwars/images/5/50/Endor_FFGRebellion.png',
+    'https://lumiere-a.akamaihd.net/v1/images/databank_endor_01_169_68ba9bdc.jpeg?region=0%2C49%2C1560%2C780',
+    'https://media.contentapi.ea.com/content/dam/walrus/common/swbf2-grid-tile-exploring-endor-16x9.jpg.adapt.crop16x9.575p.jpg',
+  ],
+  [
+    'https://static.wikia.nocookie.net/starwars/images/4/41/Naboo_FFGRebellion.png',
+    'https://media.contentapi.ea.com/content/dam/walrus/images/2018/11/mapvista-theed-grid.jpg.adapt.crop191x100.628p.jpg',
+    'https://temalguemassistindo.com.br/wp-content/uploads/2021/05/star-wars-Naboo.png',
+  ],
+  [
+    'https://static.wikia.nocookie.net/starwars/images/1/16/Coruscant-EotE.jpg',
+    'https://www.jedicenter.com.br/wp-content/uploads/2019/07/coruscant-1536x864.jpg',
+    'https://i.pinimg.com/originals/d3/43/69/d343690805464312590078a68e0e2337.jpg',
+  ],
+  [
+    'https://static.wikia.nocookie.net/galuswrpg/images/4/40/Mandaloreplanet.jpg',
+    'https://i.pinimg.com/originals/96/c1/39/96c1396e0692b769915aa3200953a29f.jpg',
+    'https://images.modhoster.de/system/files/0095/5715/huge/kamino.jpg',
+  ],
+];
+
+export default planetsImages;

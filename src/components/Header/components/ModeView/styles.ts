@@ -9,6 +9,17 @@ export const Wrapper = styled.div`
   position: absolute;
   left: 40px;
   bottom: 10px;
+
+  @media (max-width: ${({ theme }) => theme.resolutions.medium}) {
+    gap: 30px;
+    left: 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.resolutions.small}) {
+    gap: 20px;
+    left: 20px;
+    bottom: 8px;
+  }
 `;
 
 type TIcon = {
@@ -18,6 +29,14 @@ type TIcon = {
 export const Icon = styled.p<TIcon>`
   font-size: 35px;
   color: ${({ isActive, theme }) =>
-    isActive ? theme.secondary : theme.grayDark};
+    isActive ? theme.colors.secondary : theme.colors.grayLight};
   cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.resolutions.medium}) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.resolutions.small}) {
+    font-size: 14px;
+  }
 `;
