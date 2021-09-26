@@ -6,6 +6,7 @@ export const theme = {
     grayDark: '#282c34',
     grayLight: '#7d7b7b',
   },
+
   resolutions: {
     '4k': '3840px',
     fullHd: '1920px',
