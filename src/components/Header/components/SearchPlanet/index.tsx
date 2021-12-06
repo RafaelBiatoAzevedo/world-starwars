@@ -24,7 +24,7 @@ export const SearchPlanet: FC = () => {
     <Wrapper>
       <WrapperInput visibility={isVisible}>
         <Input
-          autoFocus
+          autoFocus={isVisible}
           value={valueInput}
           onChange={handleChange}
           type="text"

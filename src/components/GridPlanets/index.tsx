@@ -116,7 +116,7 @@ export const GridPlanets: FC = () => {
   return (
     <WrapperGrid>
       {planetsFiltered.length === 0 ? (
-        <Loading>LOADING PLANETS...</Loading>
+        <Loading>CARREGANDO PLANETAS...</Loading>
       ) : (
         <>
           <Grid className="title">

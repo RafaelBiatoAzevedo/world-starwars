@@ -1,7 +1,14 @@
 import { FC } from 'react';
 import TPlanet from '../../../../types/TPlanet';
 
-import { Wrapper, WrapperContent, Content, Text, Image } from './styles';
+import {
+  Wrapper,
+  WrapperContent,
+  Content,
+  Text,
+  WrapperImage,
+  Image,
+} from './styles';
 
 type TImages = {
   image1?: string;
@@ -19,7 +26,8 @@ export const PlanetsInformations: FC<TPlanetInformation> = ({
 }) => {
   return (
     <Wrapper>
-      <Image src={images?.image1} alt={planet?.name} />
+      <WrapperImage urlImage={images?.image1}></WrapperImage>
+      {/* <Image src={images?.image1} alt={planet?.name} /> */}
       <WrapperContent>
         <Content>
           <Text className="title">Terreno</Text>
@@ -54,7 +62,8 @@ export const PlanetsInformations: FC<TPlanetInformation> = ({
           <Text>{`${planet?.surface_water} %`}</Text>
         </Content>
       </WrapperContent>
-      <Image src={images?.image2} alt={planet?.name} />
+      {/* <Image src={images?.image2} alt={planet?.name} /> */}
+      <WrapperImage urlImage={images?.image2}></WrapperImage>
     </Wrapper>
   );
 };

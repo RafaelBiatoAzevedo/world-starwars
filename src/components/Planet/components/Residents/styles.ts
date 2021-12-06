@@ -17,14 +17,14 @@ export const Title = styled.p`
   font-family: StarJedi;
   font-size: 40px;
   letter-spacing: 1px;
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.colors.secondary};
   width: 100%;
 
   &::before {
     content: '';
     width: 100%;
     height: 2px;
-    background-color: ${({ theme }) => theme.secondary};
+    background-color: ${({ theme }) => theme.colors.secondary};
     margin-right: 20px;
   }
 
@@ -32,7 +32,7 @@ export const Title = styled.p`
     content: '';
     width: 100%;
     height: 2px;
-    background-color: ${({ theme }) => theme.secondary};
+    background-color: ${({ theme }) => theme.colors.secondary};
     margin-left: 20px;
   }
 `;

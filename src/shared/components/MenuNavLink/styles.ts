@@ -8,7 +8,15 @@ export const Wrapper = styled.div`
   padding: 10px 40px;
   width: 100%;
 
-  background-color: ${({ theme }) => theme.grayDark};
+  background-color: ${({ theme }) => theme.colors.grayDark};
+
+  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
+    padding: 10px 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.resolutions.small}) {
+    padding: 10px 20px;
+  }
 `;
 
 export const Icon = styled.p`
@@ -17,15 +25,31 @@ export const Icon = styled.p`
   justify-content: center;
 
   font-size: 40px;
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.colors.secondary};
   cursor: pointer;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 100%;
-  box-shadow: 0px 1px 5px 2px ${({ theme }) => theme.grayDark};
+  box-shadow: 0px 1px 5px 2px ${({ theme }) => theme.colors.grayDark};
+
+  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
+    font-size: 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.resolutions.small}) {
+    font-size: 25px;
+  }
 `;
 
-export const Planet = styled.p`
-  color: ${({ theme }) => theme.secondary};
+export const Title = styled.p`
+  color: ${({ theme }) => theme.colors.secondary};
   font-size: 45px;
   font-weight: bold;
+
+  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
+    font-size: 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.resolutions.small}) {
+    font-size: 25px;
+  }
 `;

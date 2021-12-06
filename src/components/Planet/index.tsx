@@ -22,7 +22,11 @@ export const Planet: FC = () => {
 
   return (
     <Wrapper>
-      <MenuNavLink next={nextPlanetView} previus={previusPlanetView} />
+      <MenuNavLink
+        next={nextPlanetView}
+        previus={previusPlanetView}
+        title={planetView.planet?.name || ''}
+      />
       <WrapperContent>
         <WrapperDescription>
           <Image src={imagesPosition?.[0]} />
