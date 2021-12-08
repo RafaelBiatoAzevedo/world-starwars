@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import darthVadenImage from '../../shared/assets/images/darthVaden.jpg';
+
+import darthVadenImage from '~/shared/assets/images/darthVaden.jpg';
 
 export const WrapperGrid = styled.div`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.colors.grayDark};
   width: 100%;
-  overflow: hidden;
+  flex: 1;
 `;
 
 export const Grid = styled.div`
@@ -15,7 +18,6 @@ export const Grid = styled.div`
 
   &.title {
     background-color: ${({ theme }) => theme.colors.grayDark};
-    padding-right: 15px;
   }
 
   &.scroll {
@@ -23,7 +25,7 @@ export const Grid = styled.div`
     overflow-y: auto;
     scroll-behavior: smooth;
     background-image: url(${darthVadenImage});
-    background-size: cover;
+    background-size: 100%;
 
     &::-webkit-scrollbar {
       width: 12px;
@@ -114,11 +116,11 @@ export const Loading = styled.p`
   align-items: center;
   display: flex;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.grayDark};
+  color: ${({ theme }) => theme.colors.secondary};
   font-size: 70px;
   font-weight: bold;
-  height: 100%;
   width: 100%;
+  flex: 1;
 
   @media (max-width: ${({ theme }) => theme.resolutions.medium}) {
     font-size: 40px;

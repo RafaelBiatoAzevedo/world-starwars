@@ -1,18 +1,20 @@
 import { FC } from 'react';
-import { usePlanets } from '../../../../hooks/planets';
 
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
-import { Icon } from './styles';
+
+import { usePlanets } from '~/hooks/planets';
+
+import { Icon, Wrapper } from './styles';
 
 type TArrowSequence = {
-  value: String;
+  value: string;
 };
 
 export const ArrowSequence: FC<TArrowSequence> = ({ value }) => {
   const { filters } = usePlanets();
 
   return (
-    <>
+    <Wrapper>
       {filters.orderBy === value ? (
         filters.sequence ? (
           <Icon>
@@ -25,6 +27,6 @@ export const ArrowSequence: FC<TArrowSequence> = ({ value }) => {
           </Icon>
         )
       ) : null}
-    </>
+    </Wrapper>
   );
 };

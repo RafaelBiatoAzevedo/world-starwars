@@ -1,4 +1,4 @@
-type TFilm = {
+export type TFilm = {
   title: string;
   created: string;
   director: string;
@@ -14,5 +14,3 @@ type TFilm = {
   vehicles: string[];
   species: string[];
 };
-
-export default TFilm;

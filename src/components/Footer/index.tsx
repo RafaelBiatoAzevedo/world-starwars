@@ -1,24 +1,34 @@
 import { FC } from 'react';
 
-import { Wrapper, Text } from './styles';
-import { FaBuilding, FaLocationArrow } from 'react-icons/fa';
-import { MdContactMail } from 'react-icons/md';
+import { useTheme } from 'styled-components';
 
-export const Footer: FC = () => {
+import { Wrapper } from './styles';
+
+import { Text } from '../Text';
+
+export const Footer: FC = (): JSX.Element => {
+  const { colors, fontWeight } = useTheme();
   return (
     <Wrapper>
-      <Text>
-        <FaBuilding />
-        ADC - Azevedo Digital Company - CNPJ: 39.324.590/0001-43
+      <Text title="" color={colors.secondary}>
+        <Text
+          title="AZEVEDO DIGITAL"
+          color={colors.secondary}
+          weight={fontWeight.bold}
+          paddingX="10px"
+          size="1.6rem"
+        />
+        Soluções personalizadas em Aplicações e sites
       </Text>
-      <Text>
-        <MdContactMail />
-        rafaelazevedo321@gmail.com - (19) 997426987
-      </Text>
-      <Text>
-        <FaLocationArrow />
-        Rua Cleonice Ap. Cruz K. Thielle, 350 - Mogi Guaçú, SP
-      </Text>
+      <Text
+        title="AD - Azevedo Digital / CNPJ: 39.324.590/0001-43 / Incrição Municipal:
+        324439 / Rua Cleonice Ap. Cruz K. Thielle, 350 - Mogi Guaçú - SP"
+        color={colors.secondary}
+      />
+      <Text
+        title=" Email: rafaelazevedo321@gmail.com / azevedodigital321@gmail.com - Cel: (19) 997426983"
+        color={colors.secondary}
+      />
     </Wrapper>
   );
 };

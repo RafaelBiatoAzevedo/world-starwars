@@ -1,5 +1,3 @@
-type TModeView = {
+export type TModeView = {
   mode: 'show' | 'table';
 };
-
-export default TModeView;

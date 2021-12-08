@@ -7,6 +7,12 @@ export const theme = {
     grayLight: '#7d7b7b',
   },
 
+  fontWeight: {
+    regular: '400',
+    medium: '700',
+    bold: '900',
+  },
+
   resolutions: {
     '4k': '3840px',
     fullHd: '1920px',

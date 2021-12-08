@@ -1,8 +1,8 @@
-import { TFilters } from './TFilters';
-import TPlanet from './TPlanet';
-import TPlanetView from './TPlanetView';
+import TPlanetView from '~/types/TPlanetView';
+import TPlanet from '~/types/TPlanet';
+import { TFilters } from '~/types/TFilters';
 
-type TPlanetsContext = {
+export interface IContextPlanets {
   filters: TFilters;
   changeName: (value: string) => void;
   changeFilters: (value: TFilters) => void;
@@ -14,6 +14,4 @@ type TPlanetsContext = {
   nextPlanetView: () => void;
   previusPlanetView: () => void;
   changePlanetView: (planet: TPlanet) => void;
-};
-
-export default TPlanetsContext;
+}

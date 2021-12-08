@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { useFilms } from '../../../../hooks/films';
-import filmsImages from '../../../../shared/utils/filmsImages';
+
+import filmsImages from '~/shared/utils/filmsImages';
+import { useFilms } from '~/hooks/films';
 
 import {
   Wrapper,
@@ -32,11 +33,15 @@ export const Films: FC<TFilms> = ({ filmsEndPoints }) => {
                 0,
                 4
               )})`}</SubTitle>
-              <Image src={filmsImages[film.episode_id - 1]}></Image>
+              <Image src={filmsImages[film.episode_id - 1]} />
             </CardFilm>
           ) : null
         )}
       </WrapperCards>
     </Wrapper>
   );
+};
+
+Films.defaultProps = {
+  filmsEndPoints: undefined,
 };

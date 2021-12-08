@@ -1,9 +1,17 @@
-import { FC, createContext, useContext, useEffect, useState } from 'react';
-import { requestFilms } from '../services/planetsAPI';
-import TFilm from '../types/TFilm';
-import TFilmsContext from '../types/TFilmsContext';
+import {
+  FC,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+} from 'react';
 
-const FilmsContext = createContext<TFilmsContext>({} as TFilmsContext);
+import { TFilm } from '~/types/TFilm';
+import { requestFilms } from '~/services/planetsAPI';
+import { IContextFilms } from '~/interfaces/IContextFilms';
+
+const FilmsContext = createContext<IContextFilms>({} as IContextFilms);
 
 const FilmsProvider: FC = ({ children }) => {
   const [films, setFilms] = useState<TFilm[]>([]);
@@ -12,12 +20,21 @@ const FilmsProvider: FC = ({ children }) => {
     requestFilms().then((response) => setFilms(response.results));
   }, []);
 
+  const valuesContext = useMemo(
+    () => ({
+      films,
+    }),
+    [films]
+  );
+
   return (
-    <FilmsContext.Provider value={{ films }}>{children}</FilmsContext.Provider>
+    <FilmsContext.Provider value={valuesContext}>
+      {children}
+    </FilmsContext.Provider>
   );
 };
 
-const useFilms = () => {
+const useFilms = (): IContextFilms => {
   return useContext(FilmsContext);
 };
 

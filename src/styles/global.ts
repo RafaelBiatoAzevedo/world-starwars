@@ -17,4 +17,19 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Open Sans";
     letter-spacing: 1px;
   }
+  html {
+    font-size: 14px;
+  }
+  
+  @media(max-width: ${(p) => p.theme.resolutions.medium}) {
+    html {
+      font-size: 10px;
+    }
+  }
+
+  @media(max-width: ${(p) => p.theme.resolutions.small}) {
+    html {
+      font-size: 8px;
+    }
+  } 
 `;

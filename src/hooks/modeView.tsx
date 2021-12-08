@@ -1,24 +1,38 @@
-import { FC, createContext, useState, useContext } from 'react';
-import TModeView from '../types/TModeView';
-import TModeViewContext from '../types/TModeViewContext';
+import {
+  FC,
+  createContext,
+  useState,
+  useContext,
+  useMemo,
+  useCallback,
+} from 'react';
 
-const ModeViewContext = createContext<TModeViewContext>({} as TModeViewContext);
+import { IContextModeView } from '~/interfaces/IContextModeView';
+
+import { TModeView } from '../types/TModeView';
+
+const ModeViewContext = createContext<IContextModeView>({} as IContextModeView);
 
 const ModeViewProvider: FC = ({ children }) => {
   const [modeView, setModeView] = useState<TModeView>({ mode: 'show' });
 
-  const changeModeView = (mode: 'show' | 'table'): void => {
+  const changeModeView = useCallback((mode: 'show' | 'table'): void => {
     setModeView({ mode });
-  };
+  }, []);
+
+  const valueContext = useMemo(
+    () => ({ modeView, changeModeView }),
+    [modeView, changeModeView]
+  );
 
   return (
-    <ModeViewContext.Provider value={{ modeView, changeModeView }}>
+    <ModeViewContext.Provider value={valueContext}>
       {children}
     </ModeViewContext.Provider>
   );
 };
 
-function useModeView() {
+function useModeView(): IContextModeView {
   return useContext(ModeViewContext);
 }
 

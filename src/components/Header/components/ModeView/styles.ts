@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -39,4 +41,9 @@ export const Icon = styled.p<TIcon>`
   @media (max-width: ${({ theme }) => theme.resolutions.small}) {
     font-size: 14px;
   }
+`;
+
+export const LinkBack = styled(Link)`
+  border-right: solid ${(p) => p.theme.colors.secondary} 1.5px;
+  padding-right: 20px;
 `;

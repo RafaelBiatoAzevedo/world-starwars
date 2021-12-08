@@ -1,13 +1,22 @@
-import { FC, createContext, useContext, useState, useEffect } from 'react';
+import {
+  FC,
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from 'react';
+
+import TPlanetView from '~/types/TPlanetView';
+import { IContextPlanets } from '~/interfaces/IContextPlanets';
 
 import { requestEndPoint, requestPlanet } from '../services/planetsAPI';
 
-import { TFilters } from '../types/TFilters';
 import TPlanet from '../types/TPlanet';
-import TPlanetsContext from '../types/TPlanetsContext';
-import TPlanetView from '../types/TPlanetView';
+import { TFilters } from '../types/TFilters';
 
-const PlanetsContext = createContext<TPlanetsContext>({} as TPlanetsContext);
+const PlanetsContext = createContext<IContextPlanets>({} as IContextPlanets);
 
 const PlanetsProvider: FC = ({ children }) => {
   const [planets, setPlanets] = useState<TPlanet[]>([]);
@@ -32,19 +41,22 @@ const PlanetsProvider: FC = ({ children }) => {
     );
   }, []);
 
-  const fetchAllPlanets = () => {
-    let arrayFetch = [];
+  const fetchAllPlanets = async (): Promise<any> => {
+    const arrayFetch = [];
     for (let i = 1; i <= 60; i += 1) {
       arrayFetch.push(requestEndPoint(`https://swapi.dev/api/planets/${i}`));
     }
     Promise.all(arrayFetch).then((responses) => setPlanets(responses));
   };
 
-  const changeName = (value: string): void => {
-    setFilters({ ...filters, name: value });
-  };
+  const changeName = useCallback(
+    (value: string): void => {
+      setFilters({ ...filters, name: value });
+    },
+    [filters]
+  );
 
-  const nextPlanetView = (): void => {
+  const nextPlanetView = useCallback((): void => {
     if (planetView.next <= 60) {
       requestPlanet(planetView.next).then((response) =>
         setPlanetView({
@@ -54,7 +66,7 @@ const PlanetsProvider: FC = ({ children }) => {
         })
       );
     }
-  };
+  }, [planetView.next, planetView.previus]);
 
   const changePlanetView = (planet: TPlanet): void => {
     const planetNumber = planet.url.replace(/\D/g, '');
@@ -65,7 +77,7 @@ const PlanetsProvider: FC = ({ children }) => {
     });
   };
 
-  const previusPlanetView = (): void => {
+  const previusPlanetView = useCallback((): void => {
     if (planetView.previus !== 0) {
       requestPlanet(planetView.previus).then((response) =>
         setPlanetView({
@@ -75,36 +87,53 @@ const PlanetsProvider: FC = ({ children }) => {
         })
       );
     }
-  };
+  }, [planetView.next, planetView.previus]);
 
-  const changeFilters = (value: TFilters): void => {
-    setFilters({
-      ...filters,
-      orderBy: value.orderBy,
-      sequence: value.sequence,
-    });
-  };
+  const changeFilters = useCallback(
+    (value: TFilters): void => {
+      setFilters({
+        ...filters,
+        orderBy: value.orderBy,
+        sequence: value.sequence,
+      });
+    },
+    [filters]
+  );
+
+  const valueContext = useMemo(
+    () => ({
+      planetView,
+      nextPlanetView,
+      previusPlanetView,
+
+      filters,
+
+      changeName,
+      changeFilters,
+      changePlanetView,
+
+      planets,
+      fetchAllPlanets,
+    }),
+    [
+      planetView,
+      nextPlanetView,
+      previusPlanetView,
+      planets,
+      filters,
+      changeName,
+      changeFilters,
+    ]
+  );
 
   return (
-    <PlanetsContext.Provider
-      value={{
-        planetView,
-        nextPlanetView,
-        previusPlanetView,
-        filters,
-        changeName,
-        changeFilters,
-        changePlanetView,
-        planets,
-        fetchAllPlanets,
-      }}
-    >
+    <PlanetsContext.Provider value={valueContext}>
       {children}
     </PlanetsContext.Provider>
   );
 };
 
-function usePlanets() {
+function usePlanets(): IContextPlanets {
   return useContext(PlanetsContext);
 }
 

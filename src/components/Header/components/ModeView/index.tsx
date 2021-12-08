@@ -1,10 +1,12 @@
 import { FC } from 'react';
 
-import { Wrapper, Icon } from './styles';
-
-import { ImTable } from 'react-icons/im';
 import { RiSlideshowLine } from 'react-icons/ri';
-import { useModeView } from '../../../../hooks/modeView';
+import { IoMdHome } from 'react-icons/io';
+import { ImTable } from 'react-icons/im';
+
+import { useModeView } from '~/hooks/modeView';
+
+import { Wrapper, Icon, LinkBack } from './styles';
 
 export const ModeView: FC = () => {
   const { modeView, changeModeView } = useModeView();
@@ -15,6 +17,11 @@ export const ModeView: FC = () => {
 
   return (
     <Wrapper>
+      <LinkBack to="/">
+        <Icon isActive>
+          <IoMdHome />
+        </Icon>
+      </LinkBack>
       <Icon
         onClick={() => handleChangeView('show')}
         isActive={modeView.mode === 'show'}

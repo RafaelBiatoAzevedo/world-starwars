@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
     padding: 0 30px;
   }
 
-  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
+  @media (max-width: ${(p) => p.theme.resolutions.small}) {
     padding: 0 20px;
   }
 `;

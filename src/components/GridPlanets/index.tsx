@@ -1,29 +1,32 @@
-import { FC, useEffect, useState } from 'react';
-import { usePlanets } from '../../hooks/planets';
+import { FC, useCallback, useEffect, useState } from 'react';
+
 import { AiFillPlusCircle } from 'react-icons/ai';
 
-import { WrapperGrid, Grid, ContentGrid, Icon, Loading } from './styles';
-import TPlanets from '../../types/TPlanet';
+import TPlanets from '~/types/TPlanet';
+import TPlanet from '~/types/TPlanet';
+import { TOrderBy } from '~/types/TFilters';
+import { usePlanets } from '~/hooks/planets';
+import { useModeView } from '~/hooks/modeView';
+
 import { ArrowSequence } from './components/ArrowSequence';
-import { TOrderBy } from '../../types/TFilters';
-import { useModeView } from '../../hooks/modeView';
-import TPlanet from '../../types/TPlanet';
+
+import { WrapperGrid, Grid, ContentGrid, Icon, Loading } from './styles';
 
 type TTitles = {
   originalTitle: TOrderBy;
-  pt_title: string;
+  ptTitle: string;
 };
 
 const TITLES: TTitles[] = [
-  { originalTitle: 'name', pt_title: 'nome' },
-  { originalTitle: 'population', pt_title: 'population' },
-  { originalTitle: 'diameter', pt_title: 'diametro' },
-  { originalTitle: 'rotation_period', pt_title: 'rotação' },
-  { originalTitle: 'orbital_period', pt_title: 'orbita' },
-  { originalTitle: 'surface_water', pt_title: 'água superfície' },
-  { originalTitle: 'climate', pt_title: 'clima' },
-  { originalTitle: 'gravity', pt_title: 'gravidade' },
-  { originalTitle: 'terrain', pt_title: 'terreno' },
+  { originalTitle: 'name', ptTitle: 'nome' },
+  { originalTitle: 'population', ptTitle: 'population' },
+  { originalTitle: 'diameter', ptTitle: 'diametro' },
+  { originalTitle: 'rotation_period', ptTitle: 'rotação' },
+  { originalTitle: 'orbital_period', ptTitle: 'orbita' },
+  { originalTitle: 'surface_water', ptTitle: 'água superfície' },
+  { originalTitle: 'climate', ptTitle: 'clima' },
+  { originalTitle: 'gravity', ptTitle: 'gravidade' },
+  { originalTitle: 'terrain', ptTitle: 'terreno' },
 ];
 
 export const GridPlanets: FC = () => {
@@ -33,8 +36,8 @@ export const GridPlanets: FC = () => {
   const { changeModeView } = useModeView();
 
   useEffect(() => {
-    fetchAllPlanets();
-  }, []);
+    if (planets.length === 0) fetchAllPlanets();
+  }, [planets, fetchAllPlanets]);
 
   function setOrder(a: string, b: string): number {
     const Maior = -1;
@@ -45,26 +48,26 @@ export const GridPlanets: FC = () => {
     return Igual;
   }
 
-  const sortPlanets = (listPlanets: TPlanets[]): TPlanets[] => {
-    let sortResult = [];
+  const sortPlanets = useCallback(
+    (listPlanets: TPlanets[]): TPlanets[] => {
+      let sortResult = [];
 
-    if (
-      filters.orderBy === 'name' ||
-      filters.orderBy === 'climate' ||
-      filters.orderBy === 'gravity' ||
-      filters.orderBy === 'terrain'
-    ) {
-      if (filters.sequence) {
-        sortResult = listPlanets.sort((a, b) =>
-          setOrder(String(a[filters.orderBy]), String(b[filters.orderBy]))
-        );
-      } else {
-        sortResult = listPlanets.sort((a, b) =>
-          setOrder(String(b[filters.orderBy]), String(a[filters.orderBy]))
-        );
-      }
-    } else {
-      if (filters.sequence) {
+      if (
+        filters.orderBy === 'name' ||
+        filters.orderBy === 'climate' ||
+        filters.orderBy === 'gravity' ||
+        filters.orderBy === 'terrain'
+      ) {
+        if (filters.sequence) {
+          sortResult = listPlanets.sort((a, b) =>
+            setOrder(String(a[filters.orderBy]), String(b[filters.orderBy]))
+          );
+        } else {
+          sortResult = listPlanets.sort((a, b) =>
+            setOrder(String(b[filters.orderBy]), String(a[filters.orderBy]))
+          );
+        }
+      } else if (filters.sequence) {
         sortResult = listPlanets.sort((a, b) => {
           if (b[filters.orderBy] === 'unknown') return -1;
           return Number(a[filters.orderBy]) - Number(b[filters.orderBy]);
@@ -75,30 +78,34 @@ export const GridPlanets: FC = () => {
           return Number(b[filters.orderBy]) - Number(a[filters.orderBy]);
         });
       }
-    }
 
-    return sortResult;
-  };
+      return sortResult;
+    },
+    [filters.orderBy, filters.sequence]
+  );
 
-  const FilterByName = (listPlanets: TPlanets[]): TPlanets[] => {
-    let filterResult = [];
-    if (!filters.name) return listPlanets;
-    else {
+  const filterByName = useCallback(
+    (listPlanets: TPlanets[]): TPlanets[] => {
+      let filterResult = [];
+      if (!filters.name) return listPlanets;
+
       filterResult = listPlanets.filter((planet) =>
         planet.name.toUpperCase().includes(filters.name.toUpperCase())
       );
-    }
-    return filterResult;
-  };
+
+      return filterResult;
+    },
+    [filters.name]
+  );
 
   useEffect(() => {
     let planetsResult = [...planets];
 
     planetsResult = sortPlanets(planetsResult);
-    planetsResult = FilterByName(planetsResult);
+    planetsResult = filterByName(planetsResult);
 
     setPlanetsFiltered(planetsResult);
-  }, [planets, filters]);
+  }, [planets, filters, filterByName, sortPlanets]);
 
   const handleChangeFilters = (value: TOrderBy): void => {
     changeFilters({
@@ -126,7 +133,7 @@ export const GridPlanets: FC = () => {
                 className="title"
               >
                 <ArrowSequence value={title.originalTitle} />
-                {title.pt_title}
+                {title.ptTitle}
               </ContentGrid>
             ))}
             <ContentGrid className="title">info</ContentGrid>

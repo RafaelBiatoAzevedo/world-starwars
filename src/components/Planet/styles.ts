@@ -2,12 +2,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
-  overflow: hidden;
   width: 100%;
 `;
 
 export const WrapperContent = styled.div`
-  height: 100%;
   width: 100%;
 `;
 
@@ -35,6 +33,9 @@ export const Image = styled.img`
 `;
 
 export const Text = styled.p`
+  align-items: center;
+  display: flex;
+  justify-content: center;
   font-size: 24px;
   line-height: 1.3em;
   height: 100%;

@@ -1,19 +1,54 @@
 import { FC } from 'react';
 
-import headerImage from '../../shared/assets/images/planets.jpg';
-import { ModeView } from './components/ModeView';
+import { useHistory } from 'react-router-dom';
+
+import { useTheme } from 'styled-components';
+
+import headerImage from '~/shared/assets/images/planets.jpg';
+import { useModeView } from '~/hooks/modeView';
+
 import { SearchPlanet } from './components/SearchPlanet';
+import { ModeView } from './components/ModeView';
 
-import { Wrapper, Title, Image } from './styles';
+import { Wrapper, Image } from './styles';
 
-export const Header: FC = () => {
+import { Text } from '../Text';
+
+type THeader = {
+  title: string;
+  renderModeView?: boolean;
+};
+
+export const Header: FC<THeader> = ({ title, renderModeView = false }) => {
+  const { colors, fontWeight } = useTheme();
+  const history = useHistory();
+  const { modeView } = useModeView();
+
   return (
     <Wrapper>
-      <ModeView />
-      <Title>Planetas</Title>
+      {renderModeView && <ModeView />}
+      <Text
+        color={colors.secondary}
+        title={title}
+        size="3.2rem"
+        weight={fontWeight.bold}
+        fontFamily="StarJedi"
+      />
       <Image src={headerImage} alt="planets" />
-      <Title>Star Wars</Title>
-      <SearchPlanet></SearchPlanet>
+      <Text
+        color={colors.secondary}
+        title="STAR WARS"
+        size="3.2rem"
+        weight={fontWeight.bold}
+        fontFamily="StarJedi"
+      />
+      {history.location.pathname !== '/' && modeView.mode === 'table' && (
+        <SearchPlanet />
+      )}
     </Wrapper>
   );
+};
+
+Header.defaultProps = {
+  renderModeView: undefined,
 };

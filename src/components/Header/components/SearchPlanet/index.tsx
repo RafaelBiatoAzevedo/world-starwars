@@ -1,8 +1,10 @@
 import { ChangeEvent, FC, useState } from 'react';
 
-import { Wrapper, Input, Icon, HrInput, WrapperInput } from './styles';
 import { FaSearch } from 'react-icons/fa';
-import { usePlanets } from '../../../../hooks/planets';
+
+import { usePlanets } from '~/hooks/planets';
+
+import { Wrapper, Input, Icon, HrInput, WrapperInput } from './styles';
 
 export const SearchPlanet: FC = () => {
   const { changeName } = usePlanets();
@@ -29,7 +31,7 @@ export const SearchPlanet: FC = () => {
           onChange={handleChange}
           type="text"
           placeholder="Digite o nome do planeta para buscar"
-        ></Input>
+        />
         <HrInput />
       </WrapperInput>
       <Icon onClick={handleInputVisible}>
