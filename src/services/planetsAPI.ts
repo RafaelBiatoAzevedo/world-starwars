@@ -2,8 +2,8 @@ const END_POINT_PLANETS = 'https://swapi.dev/api/planets/';
 const END_POINT_FILMS = 'https://swapi.dev/api/films/';
 const END_POINT_PEOPLE = 'https://swapi.dev/api/people/';
 const END_POINT_VEHICLES = 'https://swapi.dev/api/vehicles/';
-const END_POINT_SPECIES = 'https://swapi.dev/api/vehicles/';
-const END_POINT_STARSHIPS = 'https://swapi.dev/api/vehicles/';
+const END_POINT_SPECIES = 'https://swapi.dev/api/species/';
+const END_POINT_STARSHIPS = 'https://swapi.dev/api/starships/';
 
 export const requestPlanets = async (): Promise<any> => {
   const result = await fetch(END_POINT_PLANETS).then((response) =>

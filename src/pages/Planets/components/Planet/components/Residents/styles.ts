@@ -8,6 +8,14 @@ export const Wrapper = styled.div`
 
   padding: 40px;
   gap: 20px;
+
+  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
+    padding: 30px;
+  }
+
+  @media (max-width: ${(p) => p.theme.resolutions.small}) {
+    padding: 20px;
+  }
 `;
 
 export const Title = styled.p`

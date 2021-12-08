@@ -8,6 +8,14 @@ export const Wrapper = styled.div`
 
   padding: 40px;
   gap: 20px;
+
+  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
+    padding: 30px;
+  }
+
+  @media (max-width: ${(p) => p.theme.resolutions.small}) {
+    padding: 20px;
+  }
 `;
 
 export const WrapperCards = styled.div`
@@ -49,19 +57,6 @@ export const Title = styled.p`
     height: 2px;
     background-color: ${({ theme }) => theme.colors.secondary};
     margin-left: 20px;
-  }
-`;
-
-export const SubTitle = styled.p`
-  font-size: 16px;
-  color: ${({ theme }) => theme.colors.grayDark};
-
-  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
-    font-size: 12px;
-  }
-
-  @media (max-width: ${(p) => p.theme.resolutions.small}) {
-    font-size: 10px;
   }
 `;
 

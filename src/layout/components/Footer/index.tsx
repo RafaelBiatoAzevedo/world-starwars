@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { useTheme } from 'styled-components';
 
-import { Wrapper } from './styles';
+import { Text } from '../../../shared/components/Text';
 
-import { Text } from '../Text';
+import { Wrapper } from './styles';
 
 export const Footer: FC = (): JSX.Element => {
   const { colors, fontWeight } = useTheme();

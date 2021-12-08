@@ -28,13 +28,7 @@ export const Content = styled.div`
   display: flex;
 `;
 
-type TWrapperImage = {
-  urlImage?: string;
-};
-
-export const WrapperImage = styled.div<TWrapperImage>`
-  background-image: url(${(p) => p.urlImage});
-  background-size: cover;
+export const WrapperImage = styled.div`
   border-radius: 4px;
   width: 32%;
   height: 100%;
@@ -48,7 +42,11 @@ export const WrapperImage = styled.div<TWrapperImage>`
   }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+`;
 
 export const Text = styled.p`
   font-size: 16px;

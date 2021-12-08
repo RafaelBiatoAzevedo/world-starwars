@@ -39,17 +39,3 @@ export const Icon = styled.p`
     font-size: 25px;
   }
 `;
-
-export const Title = styled.p`
-  color: ${({ theme }) => theme.colors.secondary};
-  font-size: 45px;
-  font-weight: bold;
-
-  @media (max-width: ${(p) => p.theme.resolutions.medium}) {
-    font-size: 30px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.resolutions.small}) {
-    font-size: 25px;
-  }
-`;

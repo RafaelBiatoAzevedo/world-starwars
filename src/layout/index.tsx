@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Footer } from '~/components/Footer';
+import { Footer } from '~/layout/components/Footer';
 
 import { Wrapper } from './styles';
 

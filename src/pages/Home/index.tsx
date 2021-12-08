@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Header } from '~/components/Header';
+import { Header } from '~/shared/components/Header';
 
 import { MenuSelection } from './components/MenuSelection';
 

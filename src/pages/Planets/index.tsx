@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
+import { Header } from '~/shared/components/Header';
+import { Planet } from '~/pages/Planets/components/Planet';
+import { GridPlanets } from '~/pages/Planets/components/GridPlanets';
 import { useModeView } from '~/hooks/modeView';
-import { Planet } from '~/components/Planet';
-import { Header } from '~/components/Header';
-import { GridPlanets } from '~/components/GridPlanets';
 
 import { Wrapper } from './styles';
 

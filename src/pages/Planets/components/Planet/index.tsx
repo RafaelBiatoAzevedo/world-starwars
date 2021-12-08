@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { useTheme } from 'styled-components';
+
 import planetsDescriptions from '~/shared/utils/planetsDescriptions';
 import planetsImages from '~/shared/utils/planetImages';
 import { MenuNavLink } from '~/shared/components/MenuNavLink';
@@ -8,16 +10,12 @@ import { usePlanets } from '~/hooks/planets';
 import { Residents } from './components/Residents';
 import { PlanetsInformations } from './components/PlanetsInformations';
 import { Films } from './components/Films';
+import { Text } from '../../../../shared/components/Text';
 
-import {
-  Wrapper,
-  WrapperContent,
-  WrapperDescription,
-  Image,
-  Text,
-} from './styles';
+import { Wrapper, WrapperContent, WrapperDescription, Image } from './styles';
 
 export const Planet: FC = () => {
+  const { colors } = useTheme();
   const { nextPlanetView, previusPlanetView, planetView } = usePlanets();
   const imagesPosition = planetsImages[planetView.next - 2];
 
@@ -31,7 +29,12 @@ export const Planet: FC = () => {
       <WrapperContent>
         <WrapperDescription>
           <Image src={imagesPosition?.[0]} />
-          <Text>{planetsDescriptions[(planetView?.next || 2) - 2]?.pt}</Text>
+          <Text
+            title={planetsDescriptions[(planetView?.next || 2) - 2]?.pt}
+            color={colors.grayDark}
+            size="1.6rem"
+            paddingX="20px"
+          />
         </WrapperDescription>
         <PlanetsInformations
           planet={planetView?.planet}
