@@ -1,33 +1,31 @@
-const END_POINT_PLANETS = 'https://swapi.dev/api/planets/';
-const END_POINT_FILMS = 'https://swapi.dev/api/films/';
+import { api } from './api';
+
 const END_POINT_PEOPLE = 'https://swapi.dev/api/people/';
 const END_POINT_VEHICLES = 'https://swapi.dev/api/vehicles/';
 const END_POINT_SPECIES = 'https://swapi.dev/api/species/';
 const END_POINT_STARSHIPS = 'https://swapi.dev/api/starships/';
 
 export const requestPlanets = async (): Promise<any> => {
-  const result = await fetch(END_POINT_PLANETS).then((response) =>
+  const result = await fetch(`${api}planets`).then((response) =>
     response.json()
   );
   return result;
 };
 
 export const requestPlanet = async (value: number): Promise<any> => {
-  const result = await fetch(`${END_POINT_PLANETS}${value}`).then((response) =>
+  const result = await fetch(`${api}planets/${value}`).then((response) =>
     response.json()
   );
   return result;
 };
 
 export const requestFilms = async (): Promise<any> => {
-  const result = await fetch(END_POINT_FILMS).then((response) =>
-    response.json()
-  );
+  const result = await fetch(`${api}films`).then((response) => response.json());
   return result;
 };
 
 export const requestFilm = async (value: number): Promise<any> => {
-  const result = await fetch(`${END_POINT_FILMS}${value}`).then((response) =>
+  const result = await fetch(`${api}films/${value}`).then((response) =>
     response.json()
   );
   return result;

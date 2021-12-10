@@ -1,16 +1,15 @@
 import { FC } from 'react';
 
 import { Header } from '~/shared/components/Header';
-
-import { MenuSelection } from './components/MenuSelection';
+import { useModeView } from '~/hooks/modeView';
 
 import { Wrapper } from './styles';
 
-export const Home: FC = (): JSX.Element => {
+export const Films: FC = () => {
+  const { modeView } = useModeView();
   return (
     <Wrapper>
-      <Header title="mundo" />
-      <MenuSelection />
+      <Header title="filmes" renderModeView />
     </Wrapper>
   );
 };

@@ -18,7 +18,7 @@ export const Link: FC<TButton> = ({ icon, title, to }): JSX.Element => {
   const { colors, fontWeight } = useTheme();
   return (
     <Wrapper to={to}>
-      <Text title="" color={colors.grayDark} size="6rem">
+      <Text title="" color={colors.grayDark} size="5rem">
         {createElement(icon)}
       </Text>
       <Text

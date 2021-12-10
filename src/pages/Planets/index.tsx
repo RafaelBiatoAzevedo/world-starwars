@@ -11,7 +11,7 @@ export const Planets: FC = () => {
   const { modeView } = useModeView();
   return (
     <Wrapper>
-      <Header title="PLANETS" renderModeView />
+      <Header title="Planetas" renderModeView />
       {modeView.mode === 'table' ? <GridPlanets /> : <Planet />}
     </Wrapper>
   );

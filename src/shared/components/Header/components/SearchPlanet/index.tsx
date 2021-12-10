@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, useRef, useState } from 'react';
 
 import { FaSearch } from 'react-icons/fa';
 
@@ -10,6 +10,7 @@ export const SearchPlanet: FC = () => {
   const { changeName } = usePlanets();
   const [valueInput, setValueInput] = useState('');
   const [isVisible, setVisible] = useState(false);
+  const inputRef: any = useRef(null);
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>): void => {
     setValueInput(evt.target.value);
@@ -18,7 +19,9 @@ export const SearchPlanet: FC = () => {
 
   const handleInputVisible = (): void => {
     setVisible((prev) => !prev);
-    if (isVisible) changeName('');
+    if (isVisible) {
+      changeName('');
+    } else inputRef.current?.focus();
     setValueInput('');
   };
 
@@ -26,7 +29,7 @@ export const SearchPlanet: FC = () => {
     <Wrapper>
       <WrapperInput visibility={isVisible}>
         <Input
-          autoFocus={isVisible}
+          ref={inputRef}
           value={valueInput}
           onChange={handleChange}
           type="text"

@@ -9,6 +9,7 @@ import {
 } from 'react';
 
 import TPlanetView from '~/types/TPlanetView';
+import { api } from '~/services/api';
 import { IContextPlanets } from '~/interfaces/IContextPlanets';
 
 import { requestEndPoint, requestPlanet } from '../services/planetsAPI';
@@ -43,10 +44,15 @@ const PlanetsProvider: FC = ({ children }) => {
 
   const fetchAllPlanets = async (): Promise<any> => {
     const arrayFetch = [];
-    for (let i = 1; i <= 60; i += 1) {
-      arrayFetch.push(requestEndPoint(`https://swapi.dev/api/planets/${i}`));
+    for (let i = 1; i <= 6; i += 1) {
+      arrayFetch.push(requestEndPoint(`${api}/planets/?page=${i}`));
     }
-    Promise.all(arrayFetch).then((responses) => setPlanets(responses));
+
+    const arrayData: any = await Promise.all(arrayFetch);
+
+    for (let i = 0; i <= 5; i += 1) {
+      setPlanets((prev) => [...prev, ...arrayData[i].results]);
+    }
   };
 
   const changeName = useCallback(
