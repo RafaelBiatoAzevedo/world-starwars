@@ -10,6 +10,7 @@ export const Characters: FC = () => {
   return (
     <Wrapper>
       <Header title="personagens" renderModeView />
+      {modeView && <h1>Em Breve</h1>}
     </Wrapper>
   );
 };

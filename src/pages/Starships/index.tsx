@@ -10,6 +10,7 @@ export const StarShips: FC = () => {
   return (
     <Wrapper>
       <Header title="naves" renderModeView />
+      {modeView && <h1>Em Breve</h1>}
     </Wrapper>
   );
 };

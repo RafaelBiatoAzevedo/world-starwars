@@ -10,6 +10,7 @@ export const Films: FC = () => {
   return (
     <Wrapper>
       <Header title="filmes" renderModeView />
+      {modeView && <h1>Em Breve</h1>}
     </Wrapper>
   );
 };
