@@ -18,11 +18,11 @@ export const Link: FC<TButton> = ({ icon, title, to }): JSX.Element => {
   const { colors, fontWeight } = useTheme();
   return (
     <Wrapper to={to}>
-      <Text title="" color={colors.grayDark} size="5rem">
+      <Text title="" color={colors.grayDark} size="4rem">
         {createElement(icon)}
       </Text>
       <Text
-        size="2rem"
+        size="1.8rem"
         title={title}
         color={colors.secondary}
         weight={fontWeight.bold}

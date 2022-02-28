@@ -6,14 +6,13 @@ export const Wrapper = styled(Link)`
   align-items: center;
   display: flex;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   flex-direction: column;
   cursor: pointer;
 
   text-decoration: none;
 
-  padding: 3rem;
-  gap: 10px;
+  gap: 1rem;
   box-shadow: 0px 2px 15px 5px ${(p) => p.theme.colors.grayDark};
   width: 35%;
 
