@@ -20,6 +20,20 @@ npm run preview  # Serve a versão de produção
 
 Em uma hospedagem estática, configure as rotas desconhecidas para servir `index.html`. Isso permite abrir e atualizar diretamente endereços como `/characters/1` e `/planets/1`.
 
+## Publicar no Netlify
+
+A configuração está versionada em `netlify.toml` e `.nvmrc`:
+
+- **Node.js:** 24.
+- **Gerenciador:** npm, usando `package-lock.json`.
+- **Comando de build:** `npm run build`.
+- **Diretório publicado:** `dist`.
+- **Rotas da aplicação:** redirecionamento interno para `/index.html`, preservando os arquivos estáticos existentes.
+
+O arquivo `.nvmrc` também permite selecionar a mesma versão localmente com `nvm use`. No Netlify, ele tem precedência sobre uma versão antiga configurada no painel, conforme a [documentação de versões do Node.js](https://docs.netlify.com/build/configure-builds/manage-dependencies/#node-js-and-javascript).
+
+Depois de enviar esses arquivos ao repositório conectado ao Netlify, inicie um novo deploy. A configuração versionada substitui o comando antigo `yarn build` e a pasta `build` definidos no painel.
+
 ## O que está pronto
 
 - **Seis categorias completas:** 82 personagens, 60 planetas, 6 filmes, 37 espécies, 36 naves e 39 veículos.
@@ -48,7 +62,7 @@ npm run build
 
 A atualização valida as seis respostas antes de substituir o arquivo, preservando o catálogo anterior caso uma chamada falhe. As contagens exibidas na aplicação são calculadas a partir dos dados.
 
-As imagens originais do projeto foram preservadas e receberam versões WebP. Imagens adicionais foram obtidas do [Star Wars Databank](https://www.starwars.com/databank); seus endereços e páginas de origem estão em `public/images/credits.json`. Registros sem imagem usam uma composição visual da respectiva categoria.
+As imagens em uso estão em WebP; os arquivos antigos sem referência e as cópias duplicadas foram removidos. Quando vários registros usam a mesma imagem, o catálogo compartilha um único arquivo. Imagens adicionais foram obtidas do [Star Wars Databank](https://www.starwars.com/databank); seus endereços e páginas de origem estão em `public/images/credits.json`. Registros sem imagem usam uma composição visual da respectiva categoria.
 
 Star Wars e seus personagens pertencem à Lucasfilm Ltd. Este é um projeto de fã, sem fins comerciais.
 
@@ -61,7 +75,7 @@ src/
   data/        Tipos, catálogo, imagens e cópia local dos dados
   lib/         Busca, filtros, formatação e relacionamentos
   pages/       Início, catálogo, coleção, detalhes e página 404
-  shared/      Imagens preservadas do projeto original
+  shared/      Imagens WebP dos personagens e filmes
   styles.css   Identidade visual e layouts responsivos
 scripts/
   refresh-data.mjs

@@ -229,9 +229,9 @@ button {
 .skip-link:focus {
   transform: translateY(0);
 }
-/* A compact, persistent navigation keeps every archive within reach. */
+/* Persistent navigation keeps every archive readable and within reach. */
 .site-header {
-  height: 86px;
+  height: 96px;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -259,7 +259,7 @@ button {
 }
 .brand-starwars {
   font-family: StarJedi, sans-serif;
-  font-size: 20px;
+  font-size: 26px;
   line-height: 0.92;
   letter-spacing: -1.3px;
   color: var(--yellow);
@@ -267,18 +267,18 @@ button {
 }
 .brand-divider {
   width: 1px;
-  height: 30px;
+  height: 38px;
   background: #ffffff25;
 }
 .brand-world {
-  font-size: 14px;
+  font-size: 17px;
   letter-spacing: 3.5px;
   line-height: 1.5;
   font-weight: 600;
 }
 .brand-world small {
   display: block;
-  font-size: 6px;
+  font-size: 8px;
   font-weight: 500;
   letter-spacing: 1.4px;
   color: #a4a4a6;
@@ -289,13 +289,16 @@ button {
   align-self: stretch;
   justify-content: center;
   gap: 23px;
-  margin: auto;
+  margin: 0 auto;
 }
 .desktop-nav a {
   display: flex;
   align-items: center;
-  font-size: 12px;
-  color: #a9aaad;
+  min-height: 48px;
+  padding-inline: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #c2c3c7;
   position: relative;
   transition: color 0.2s;
   white-space: nowrap;
@@ -307,16 +310,26 @@ button {
 .desktop-nav a.active:after {
   content: '';
   position: absolute;
-  bottom: 18px;
-  width: 14px;
+  bottom: 22px;
+  width: 22px;
   height: 2px;
   background: var(--yellow);
-  left: calc(50% - 7px);
+  left: calc(50% - 11px);
 }
 .header-actions {
   display: flex;
   align-items: center;
   gap: 13px;
+  flex-shrink: 0;
+}
+.header-actions .icon-button {
+  width: 44px;
+  height: 44px;
+}
+.header-search > svg,
+.collection-link > svg {
+  width: 22px;
+  height: 22px;
 }
 .action-divider {
   height: 17px;
@@ -327,7 +340,9 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 14px;
   color: #c9c9ca;
   white-space: nowrap;
 }
@@ -339,12 +354,12 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 18px;
-  height: 18px;
+  min-width: 22px;
+  height: 22px;
   background: var(--yellow);
   color: #15140e;
   border-radius: 50%;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   padding-inline: 4px;
 }
@@ -430,7 +445,7 @@ button {
   gap: 11px;
   align-items: center;
   margin-top: 31px;
-  font-size: 6.8px;
+  font-size: 8.8px;
   letter-spacing: 1.7px;
   color: #7d7f83;
 }
@@ -480,7 +495,7 @@ button {
   align-items: center;
   justify-content: space-between;
   color: #777a7d;
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 1.5px;
 }
 .hero-bottom a {
@@ -522,7 +537,7 @@ button {
   gap: 10px;
   color: #a1a1a6;
   letter-spacing: 1.3px;
-  font-size: 7px;
+  font-size: 9px;
 }
 .stats-inner > div {
   display: flex;
@@ -542,7 +557,7 @@ button {
   font-size: 36px;
 }
 .stats-inner > div > span {
-  font-size: 9px;
+  font-size: 11px;
   color: #8e8f95;
   max-width: 100px;
   line-height: 1.65;
@@ -1858,36 +1873,39 @@ button {
 }
 .footer-top {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
-  padding-block: 38px;
+  gap: 32px;
+  padding-block: 52px;
 }
 .footer-top .brand-starwars {
-  font-size: 18px;
-  color: #b3b3b3;
+  font-size: 28px;
+  color: #d2d2d4;
 }
 .footer-top .brand-world {
-  font-size: 12px;
-  color: #c1c1c3;
+  font-size: 19px;
+  color: #e0e0e3;
 }
 .footer-top .brand-world small {
-  font-size: 5px;
+  font-size: 9px;
 }
 .footer-top > p {
-  color: #7f8287;
-  font-size: 9px;
-  line-height: 1.9;
+  color: #b1b3ba;
+  font-size: 14px;
+  line-height: 1.8;
 }
 .footer-top > p strong {
   font-weight: 400;
-  color: #a3a4a9;
+  color: #d1d2d7;
 }
 .footer-force {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 9px;
+  min-height: 44px;
+  font-size: 14px;
+  line-height: 1.8;
   color: #d0c797;
 }
 .footer-force > svg {
@@ -1898,13 +1916,14 @@ button {
 }
 .footer-bottom {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
-  padding-block: 20px;
+  gap: 16px 28px;
+  padding-block: 24px;
   border-top: 1px solid #ffffff0b;
-  font-size: 7px;
-  color: #85878b;
+  font-size: 12px;
+  color: #a6a8b0;
   line-height: 1.8;
 }
 .footer-bottom > span:last-child {
@@ -1917,6 +1936,11 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 3px;
+  min-height: 44px;
+}
+.footer-bottom a > svg {
+  width: 14px;
+  height: 14px;
 }
 .footer-bottom a:hover {
   color: var(--yellow);
@@ -1956,13 +1980,13 @@ button {
 @media (max-width: 1240px) {
   .header-inner {
     padding-inline: 28px;
-    gap: 25px;
+    gap: 20px;
   }
   .desktop-nav {
-    gap: 16px;
+    gap: 18px;
   }
   .desktop-nav a {
-    font-size: 10px;
+    font-size: 15px;
   }
   .header-actions {
     gap: 8px;
@@ -1971,11 +1995,11 @@ button {
     display: none;
   }
   .brand-world {
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 3px;
   }
   .brand-world small {
-    font-size: 5px;
+    font-size: 8px;
   }
   .container {
     width: calc(100% - 80px);
@@ -1993,7 +2017,7 @@ button {
     padding-left: 23px;
   }
   .stats-label {
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 1px;
   }
   .entity-grid {
@@ -2026,34 +2050,6 @@ button {
   }
 }
 @media (max-width: 960px) {
-  .site-header {
-    height: 76px;
-  }
-  .header-inner {
-    padding-inline: 26px;
-    gap: 20px;
-  }
-  .desktop-nav {
-    gap: 12px;
-  }
-  .desktop-nav a {
-    font-size: 9px;
-  }
-  .brand-world {
-    display: none;
-  }
-  .brand-divider {
-    display: none;
-  }
-  .brand-starwars {
-    font-size: 19px;
-  }
-  .header-actions {
-    gap: 4px;
-  }
-  .action-divider {
-    margin-inline: 2px;
-  }
   .hero {
     height: 625px;
   }
@@ -2084,7 +2080,7 @@ button {
     font-size: 20px;
   }
   .hero-footnote {
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 1.2px;
   }
   .hero-description {
@@ -2106,7 +2102,7 @@ button {
     gap: 10px;
   }
   .stats-inner > div > span {
-    font-size: 8px;
+    font-size: 10px;
     max-width: 75px;
   }
   .stats-inner strong {
@@ -2277,75 +2273,39 @@ button {
   .detail-source {
     font-size: 7px;
   }
-  .footer-top > p {
-    display: none;
-  }
-  .footer-bottom {
-    font-size: 6px;
-  }
-  .footer-dot {
-    margin-inline: 4px;
-  }
 }
-@media (max-width: 720px) {
-  .container {
-    width: calc(100% - 40px);
-  }
+@media (max-width: 1024px) {
   .site-header {
-    height: 72px;
+    height: 88px;
   }
   .header-inner {
-    padding-inline: 20px;
+    padding-inline: 26px;
     justify-content: space-between;
-  }
-  .brand-world {
-    display: block;
-    font-size: 12px;
-    letter-spacing: 2.5px;
-  }
-  .brand-world small {
-    font-size: 5px;
-    letter-spacing: 1px;
-  }
-  .brand-divider {
-    display: block;
-    height: 25px;
-  }
-  .brand {
-    gap: 12px;
-  }
-  .brand-starwars {
-    font-size: 18px;
+    gap: 16px;
   }
   .desktop-nav {
     display: none;
   }
   .header-actions {
-    gap: 6px;
-  }
-  .header-search {
-    width: 34px;
+    gap: 8px;
   }
   .action-divider {
     display: none;
   }
   .collection-link {
-    min-width: 34px;
-    min-height: 38px;
     position: relative;
     justify-content: center;
   }
   .collection-count {
     position: absolute;
     right: -2px;
-    top: 1px;
-    font-size: 7px;
-    min-width: 14px;
-    height: 14px;
+    top: 0;
+    min-width: 18px;
+    height: 18px;
+    font-size: 10px;
   }
   .mobile-menu-button {
     display: flex;
-    margin-left: 3px;
   }
   .mobile-nav {
     display: flex;
@@ -2353,29 +2313,51 @@ button {
     position: absolute;
     left: 0;
     right: 0;
-    top: 71px;
-    padding: 10px 20px 20px;
+    top: 100%;
+    padding: 12px 26px 24px;
     background: #0f1013;
     border-bottom: 1px solid #37372e;
     box-shadow: 0 15px 30px #0009;
-    max-height: calc(100dvh - 72px);
+    max-height: calc(100dvh - 88px);
     overflow: auto;
   }
   .mobile-nav > a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ffffff09;
-    padding: 14px 7px;
-    color: #b8b8be;
-    font-size: 13px;
-    min-height: 46px;
+    border-bottom: 1px solid #ffffff12;
+    padding: 17px 8px;
+    color: #d0d1d6;
+    font-size: 17px;
+    min-height: 56px;
   }
   .mobile-nav > a.active {
     color: var(--yellow);
   }
   .mobile-nav > a > svg {
-    color: #747574;
+    width: 19px;
+    height: 19px;
+    color: #a5a7ae;
+  }
+}
+@media (max-width: 720px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+  .site-header {
+    height: 84px;
+  }
+  .header-inner {
+    padding-inline: 20px;
+  }
+  .site-header .brand-starwars {
+    font-size: 24px;
+  }
+  .site-header .brand-world {
+    font-size: 15px;
+  }
+  .header-actions {
+    gap: 4px;
   }
   .hero {
     height: 625px;
@@ -2432,7 +2414,7 @@ button {
     width: 16px;
   }
   .hero-footnote {
-    font-size: 5.3px;
+    font-size: 7.3px;
     letter-spacing: 1px;
     margin-top: 22px;
     gap: 8px;
@@ -2442,11 +2424,11 @@ button {
   }
   .hero-bottom {
     bottom: 24px;
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 1.2px;
   }
   .hero-bottom > span {
-    font-size: 5.5px;
+    font-size: 7.5px;
     max-width: 100px;
     text-align: right;
     line-height: 1.9;
@@ -2480,7 +2462,7 @@ button {
     font-size: 29px;
   }
   .stats-inner > div > span {
-    font-size: 7px;
+    font-size: 9px;
     max-width: none;
     line-height: 1.4;
   }
@@ -2652,42 +2634,36 @@ button {
     width: 17px;
   }
   .footer-top {
-    padding-block: 29px;
-    gap: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-block: 40px;
+    gap: 24px;
   }
   .footer-top .brand-world {
-    display: block;
-  }
-  .footer-top .brand-divider {
-    display: block;
-  }
-  .footer-top .brand-starwars {
-    font-size: 15px;
-  }
-  .footer-top .brand-world {
-    font-size: 10px;
+    font-size: 18px;
   }
   .footer-top .brand-world small {
-    font-size: 4px;
+    font-size: 8px;
   }
   .footer-force {
-    font-size: 7px;
-    gap: 8px;
-    max-width: 155px;
-    line-height: 1.8;
+    gap: 10px;
   }
   .footer-force > svg {
-    width: 13px;
+    width: 20px;
+    height: 20px;
   }
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
-    font-size: 6.5px;
-    padding-block: 16px;
+    gap: 12px;
+    padding-block: 22px;
+    font-size: 12px;
   }
   .footer-bottom > span:last-child {
-    gap: 3px;
+    gap: 2px 4px;
+  }
+  .footer-dot {
+    margin-inline: 3px;
   }
   .catalog-hero-inner {
     padding-top: 22px;
@@ -3063,6 +3039,15 @@ button {
     padding: 13px 20px;
   }
 }
+@media (max-width: 480px) {
+  .site-header .brand-world,
+  .site-header .brand-divider {
+    display: none;
+  }
+  .site-header .brand-starwars {
+    font-size: 26px;
+  }
+}
 @media (max-width: 380px) {
   .container {
     width: calc(100% - 32px);
@@ -3072,15 +3057,6 @@ button {
   }
   .header-actions {
     gap: 2px;
-  }
-  .brand {
-    gap: 9px;
-  }
-  .brand-starwars {
-    font-size: 17px;
-  }
-  .brand-world {
-    font-size: 11px;
   }
   .hero h1 {
     font-size: clamp(59px, 18vw, 68px);
@@ -3102,7 +3078,7 @@ button {
     gap: 7px;
   }
   .hero-footnote {
-    font-size: 4.7px;
+    font-size: 6.7px;
   }
   .section-heading h2 {
     font-size: 31px;
@@ -3148,10 +3124,6 @@ button {
   }
   .quote-symbol {
     font-size: 72px;
-  }
-  .footer-force {
-    font-size: 6px;
-    max-width: 130px;
   }
   .reset-filters {
     font-size: 7px;
