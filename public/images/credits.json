@@ -1,0 +1,297 @@
+[
+  {
+    "name": "hero",
+    "source": "https://www.starwars.com/databank/darth-vader",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/maul-shadow-lord-season-1-finale-darth-vader_9d1e251b.jpeg?region=238%2C0%2C1444%2C812"
+  },
+  {
+    "name": "planets",
+    "source": "https://www.starwars.com/databank/tatooine",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/tatooine-main_9542b896.jpeg?region=165%2C0%2C949%2C534"
+  },
+  {
+    "name": "characters",
+    "source": "https://www.starwars.com/databank/luke-skywalker",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/luke-skywalker-main_7ffe21c7.jpeg?region=130%2C147%2C1417%2C796"
+  },
+  {
+    "name": "starships",
+    "source": "https://www.starwars.com/databank/millennium-falcon",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/millennium-falcon-main-tlj-a_7cf89d3a.jpeg?region=0%2C0%2C1280%2C720"
+  },
+  {
+    "name": "species",
+    "source": "https://www.starwars.com/databank/wookiee",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/wookiees-main-b_fc850c5b.jpeg?region=8%2C0%2C1543%2C868"
+  },
+  {
+    "name": "vehicles",
+    "source": "https://www.starwars.com/databank/at-at-walker",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/at-at-walker-main_3d58fb95.jpeg?region=1%2C106%2C1544%2C870"
+  },
+  {
+    "name": "planet-1",
+    "source": "https://www.starwars.com/databank/tatooine",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/tatooine-main_9542b896.jpeg?region=165%2C0%2C949%2C534"
+  },
+  {
+    "name": "planet-2",
+    "source": "https://www.starwars.com/databank/alderaan",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/alderaan-main_f5b676cf.jpeg?region=0%2C0%2C1280%2C720"
+  },
+  {
+    "name": "planet-3",
+    "source": "https://www.starwars.com/databank/yavin-4",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/yavin-4-main_bd23f447.jpeg?region=331%2C0%2C949%2C534"
+  },
+  {
+    "name": "planet-4",
+    "source": "https://www.starwars.com/databank/hoth",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Hoth_d074d307.jpeg?region=0%2C0%2C1200%2C675"
+  },
+  {
+    "name": "planet-5",
+    "source": "https://www.starwars.com/databank/dagobah",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Dagobah_890df592.jpeg?region=0%2C80%2C1260%2C711"
+  },
+  {
+    "name": "planet-6",
+    "source": "https://www.starwars.com/databank/bespin",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Bespin_2d0759aa.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-7",
+    "source": "https://www.starwars.com/databank/endor",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_endor_01_169_68ba9bdc.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-8",
+    "source": "https://www.starwars.com/databank/naboo",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_naboo_01_169_6cd7e1e0.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-9",
+    "source": "https://www.starwars.com/databank/coruscant",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/coruscant-main_d2fad5f2.jpeg?region=245%2C0%2C1430%2C804"
+  },
+  {
+    "name": "planet-10",
+    "source": "https://www.starwars.com/databank/kamino",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/kamino-main_3001369e.jpeg?region=158%2C0%2C964%2C542"
+  },
+  {
+    "name": "planet-11",
+    "source": "https://www.starwars.com/databank/geonosis",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_geonosis_01_169_1d04e086.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-12",
+    "source": "https://www.starwars.com/databank/utapau",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_utapau_01_169_14a54eb1.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-13",
+    "source": "https://www.starwars.com/databank/mustafar",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_mustafar_01_169_5b470758.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-14",
+    "source": "https://www.starwars.com/databank/kashyyyk",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/kashyyyk-main_37a2e497.jpeg?region=237%2C0%2C1445%2C813"
+  },
+  {
+    "name": "planet-15",
+    "source": "https://www.starwars.com/databank/polis-massa",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_polismassa_01_169_21f04b76.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-16",
+    "source": "https://www.starwars.com/databank/mygeeto",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/mygeeto-main-image_91c503cc.jpeg?region=49%2C0%2C1181%2C665"
+  },
+  {
+    "name": "planet-17",
+    "source": "https://www.starwars.com/databank/felucia",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_felucia_01_169_2070e38e.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "planet-18",
+    "source": "https://www.starwars.com/databank/cato-neimoidia",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_catoneimoidia_01_169_d2b9bb58.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "starship-2",
+    "source": "https://www.starwars.com/databank/tantive-iv",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/tantive-iv-main_f1ea3fa5.jpeg?region=0%2C0%2C1281%2C720"
+  },
+  {
+    "name": "starship-3",
+    "source": "https://www.starwars.com/databank/imperial-star-destroyer",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Star-Destroyer_ab6b94bb.jpeg?region=0%2C0%2C1600%2C900"
+  },
+  {
+    "name": "starship-5",
+    "source": "https://www.starwars.com/databank/imperial-sentinel-class-shuttle",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Imperial-Sentinel-Class-Shuttle_a2dc7d3b.jpeg?region=0%2C0%2C1596%2C898"
+  },
+  {
+    "name": "starship-9",
+    "source": "https://www.starwars.com/databank/death-star",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Death-Star-I-copy_36ad2500.jpeg?region=0%2C0%2C1600%2C900"
+  },
+  {
+    "name": "starship-10",
+    "source": "https://www.starwars.com/databank/millennium-falcon",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/millennium-falcon-main-tlj-a_7cf89d3a.jpeg?region=0%2C0%2C1280%2C720"
+  },
+  {
+    "name": "starship-12",
+    "source": "https://www.starwars.com/databank/x-wing-starfighter",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/x-wing-main_9416f762.jpeg?region=1%2C211%2C1544%2C869"
+  },
+  {
+    "name": "starship-15",
+    "source": "https://www.starwars.com/databank/executor",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_executor_01_169_8157df82.jpeg?region=57%2C0%2C1503%2C845"
+  },
+  {
+    "name": "starship-21",
+    "source": "https://www.starwars.com/databank/slave-i",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/slave-1-main_81d5c1c7.jpeg?region=160%2C0%2C960%2C540"
+  },
+  {
+    "name": "starship-22",
+    "source": "https://www.starwars.com/databank/imperial-shuttle",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/veh_ia_1752_040381b2.jpeg?region=0%2C70%2C1280%2C720"
+  },
+  {
+    "name": "starship-27",
+    "source": "https://www.starwars.com/databank/mon-calamari-star-cruiser",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/e6d_ia_2581_47f64de7.jpeg?region=254%2C0%2C1426%2C802"
+  },
+  {
+    "name": "starship-28",
+    "source": "https://www.starwars.com/databank/a-wing-fighter",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/screen_shot_2015-05-26_at_5_16a39e17.png?region=0%2C71%2C812%2C457"
+  },
+  {
+    "name": "starship-29",
+    "source": "https://www.starwars.com/databank/b-wing-fighter",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_bwingfighter_01_169_460cc528.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "vehicle-4",
+    "source": "https://www.starwars.com/databank/sandcrawler",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/sandcrawler-main_eb1b036b.jpeg?region=251%2C20%2C865%2C487"
+  },
+  {
+    "name": "vehicle-6",
+    "source": "https://www.starwars.com/databank/t-16-skyhopper",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_t16skyhopper_01_169_ad69e901.jpeg?region=141%2C304%2C750%2C422"
+  },
+  {
+    "name": "vehicle-7",
+    "source": "https://www.starwars.com/databank/landspeeder",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_landspeeder_01_169_50afe4dc.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "vehicle-8",
+    "source": "https://www.starwars.com/databank/tie-fighter",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/TIE-Fighter_25397c64.jpeg?region=0%2C1%2C2048%2C1152"
+  },
+  {
+    "name": "vehicle-14",
+    "source": "https://www.starwars.com/databank/snowspeeder",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/snowspeeder_ef2f9334.jpeg?region=0%2C211%2C2048%2C1154"
+  },
+  {
+    "name": "vehicle-18",
+    "source": "https://www.starwars.com/databank/at-at-walker",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/at-at-walker-main_3d58fb95.jpeg?region=1%2C106%2C1544%2C870"
+  },
+  {
+    "name": "vehicle-19",
+    "source": "https://www.starwars.com/databank/at-st-walker",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/e6d_ia_5724_a150e6d4.jpeg?region=124%2C0%2C1424%2C802"
+  },
+  {
+    "name": "vehicle-30",
+    "source": "https://www.starwars.com/databank/imperial-speeder-bike",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/image_ba7e8b9d.jpeg?region=0%2C0%2C1920%2C1080"
+  },
+  {
+    "name": "species-3",
+    "source": "https://www.starwars.com/databank/wookiee",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/wookiees-main-b_fc850c5b.jpeg?region=8%2C0%2C1543%2C868"
+  },
+  {
+    "name": "species-5",
+    "source": "https://www.starwars.com/databank/hutt",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/hutt-history-the-twins-rotta-feature_5fcca43a.jpeg?region=0%2C0%2C1600%2C900"
+  },
+  {
+    "name": "species-6",
+    "source": "https://www.starwars.com/databank/yoda",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Yoda-Retina_2a7ecc26.jpeg?region=0%2C0%2C1536%2C864"
+  },
+  {
+    "name": "species-8",
+    "source": "https://www.starwars.com/databank/ewok",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_ewok_01_169_747db03a.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "species-9",
+    "source": "https://www.starwars.com/databank/sullustan",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_sullustan_01_169_01e4c3e0.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "species-10",
+    "source": "https://www.starwars.com/databank/neimoidian",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_neimoidian_01_169_f4d61512.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "species-12",
+    "source": "https://www.starwars.com/databank/gungan",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/ep1_ia_70138_bd7b9296.jpeg?region=0%2C0%2C3072%2C1732"
+  },
+  {
+    "name": "species-15",
+    "source": "https://www.starwars.com/databank/twi-lek",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/twi-lek-main_93917d40.jpeg?region=93%2C0%2C951%2C536"
+  },
+  {
+    "name": "species-22",
+    "source": "https://www.starwars.com/databank/kaminoan",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/kaminoan-main-image_8f582a48.jpeg?region=293%2C0%2C1180%2C663"
+  },
+  {
+    "name": "people-13",
+    "source": "https://www.starwars.com/databank/chewbacca",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/chewie-main_e1968a8a.jpeg?region=131%2C0%2C951%2C536"
+  },
+  {
+    "name": "people-14",
+    "source": "https://www.starwars.com/databank/han-solo",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/han-solo-main_a4c8ff79.jpeg?region=0%2C0%2C1920%2C1080"
+  },
+  {
+    "name": "people-20",
+    "source": "https://www.starwars.com/databank/yoda",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/Yoda-Retina_2a7ecc26.jpeg?region=0%2C0%2C1536%2C864"
+  },
+  {
+    "name": "people-25",
+    "source": "https://www.starwars.com/databank/lando-calrissian",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/lando-main_a207290e.jpeg?region=147%2C0%2C951%2C536"
+  },
+  {
+    "name": "people-27",
+    "source": "https://www.starwars.com/databank/ackbar",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/databank_ackbar_01_169_55137220.jpeg?region=0%2C0%2C1560%2C878"
+  },
+  {
+    "name": "people-44",
+    "source": "https://www.starwars.com/databank/darth-maul",
+    "image": "https://lumiere-a.akamaihd.net/v1/images/maul-main_4520a060.jpeg?region=238%2C0%2C1444%2C812"
+  }
+]

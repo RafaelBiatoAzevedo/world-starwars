@@ -1,46 +1,103 @@
-# Getting Started with Create React App
+# World Star Wars
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma enciclopédia de Star Wars em português, com visual cinematográfico, navegação responsiva e uma coleção pessoal de favoritos. Reformulação do projeto original, preservando seus personagens, imagens e identidade.
 
-## Available Scripts
+## Começar
 
-In the project directory, you can run:
+É necessário **Node.js 22.12 ou superior**.
 
-### `yarn start`
+```sh
+npm ci
+npm run dev
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Abra o endereço exibido no terminal, normalmente `http://localhost:5173`. `npm start` também inicia o ambiente de desenvolvimento.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```sh
+npm run build    # Verifica os tipos e gera dist/
+npm run preview  # Serve a versão de produção
+```
 
-### `yarn test`
+Em uma hospedagem estática, configure as rotas desconhecidas para servir `index.html`. Isso permite abrir e atualizar diretamente endereços como `/characters/1` e `/planets/1`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## O que está pronto
 
-### `yarn build`
+- **Seis categorias completas:** 82 personagens, 60 planetas, 6 filmes, 37 espécies, 36 naves e 39 veículos.
+- Busca por nome, insensível a acentos e maiúsculas. Os filmes também podem ser encontrados pelo título original.
+- Filtros específicos de cada categoria, ordenação, paginação e modos de visualização em cards ou lista.
+- Fichas com dados técnicos, valores formatados em português e conexões navegáveis entre os registros.
+- Busca global pelo botão da navegação ou pelo atalho **Ctrl+K / ⌘K**, com fechamento por **Esc**.
+- Favoritos persistidos em `localStorage`, sincronizados entre abas, com busca e filtro por categoria.
+- Layouts para celular, tablet e desktop, menu móvel, navegação por teclado e suporte a movimento reduzido.
+- Tratamento de endereços inválidos, buscas sem resultados, imagens indisponíveis e armazenamento bloqueado.
+- Imagens WebP e fontes locais; o funcionamento do catálogo não depende de requisições a serviços externos durante a navegação.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A coleção pertence ao navegador e dispositivo utilizados. Não há conta, sincronização em nuvem ou backend.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Dados e imagens
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Os **260 registros** vêm da [SWAPI](https://swapi.info/documentation). A base inclui os episódios I a VI. Valores desconhecidos são apresentados como tais, sem inventar informações.
 
-### `yarn eject`
+O catálogo fica versionado em `src/data/snapshot.json`. Para atualizá-lo com acesso à internet:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+npm run data:refresh
+npm test
+npm run build
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A atualização valida as seis respostas antes de substituir o arquivo, preservando o catálogo anterior caso uma chamada falhe. As contagens exibidas na aplicação são calculadas a partir dos dados.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+As imagens originais do projeto foram preservadas e receberam versões WebP. Imagens adicionais foram obtidas do [Star Wars Databank](https://www.starwars.com/databank); seus endereços e páginas de origem estão em `public/images/credits.json`. Registros sem imagem usam uma composição visual da respectiva categoria.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Star Wars e seus personagens pertencem à Lucasfilm Ltd. Este é um projeto de fã, sem fins comerciais.
 
-## Learn More
+## Organização
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```text
+src/
+  components/  Navegação, busca global, cards e botões de coleção
+  context/     Estado da coleção e persistência defensiva
+  data/        Tipos, catálogo, imagens e cópia local dos dados
+  lib/         Busca, filtros, formatação e relacionamentos
+  pages/       Início, catálogo, coleção, detalhes e página 404
+  shared/      Imagens preservadas do projeto original
+  styles.css   Identidade visual e layouts responsivos
+scripts/
+  refresh-data.mjs
+tests/
+  app.spec.ts  Testes de navegação e acessibilidade no navegador
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Tecnologias:** React 19, TypeScript, Vite, React Router e Lucide. A antiga configuração de Create React App, os provedores acoplados e as requisições repetidas foram substituídos por componentes compartilhados e um catálogo tipado.
+
+## Verificações
+
+```sh
+npm run typecheck
+npm test
+npm run format:check
+```
+
+Os testes unitários verificam a integridade dos dados, as referências entre registros, a busca, a filtragem, a ordenação, a formatação e a recuperação de favoritos inválidos.
+
+Para os testes de navegador:
+
+```sh
+npx playwright install chromium
+npm run test:e2e
+```
+
+Também é possível usar uma instalação existente do Chrome:
+
+```sh
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/google-chrome npm run test:e2e
+```
+
+O Playwright inicia uma prévia na porta **5188**. A suíte cobre as seis seções, filtros, paginação, detalhes relacionados, persistência de favoritos, navegação móvel, foco no modal e páginas 404. Também verifica ausência de rolagem horizontal entre **320 e 1440 px** e executa uma auditoria automática de acessibilidade WCAG AA com axe. Uma auditoria automática não substitui avaliação manual com tecnologias assistivas.
+
+As capturas para revisão visual ficam em `artifacts/`; relatórios e rastros de falhas ficam em `test-results/`. Esses arquivos não são versionados.
+
+```sh
+npm run format # Formata o código-fonte
+```

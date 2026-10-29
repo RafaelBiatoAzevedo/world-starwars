@@ -1,0 +1,9 @@
+dist/
+node_modules/
+artifacts/
+test-results/
+playwright-report/
+src/data/snapshot.json
+src/data/images.json
+public/images/credits.json
+package-lock.json

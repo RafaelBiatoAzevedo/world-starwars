@@ -10,6 +10,11 @@
 
 # production
 /build
+/dist
+/test-results
+/playwright-report
+/artifacts
+*.tmp
 
 # misc
 .DS_Store
