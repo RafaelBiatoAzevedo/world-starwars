@@ -1,58 +1,96 @@
 # World Star Wars
 
-Uma enciclopédia de Star Wars em português, com visual cinematográfico, navegação responsiva e uma coleção pessoal de favoritos. Reformulação do projeto original, preservando seus personagens, imagens e identidade.
+Enciclopédia de Star Wars em português, com **260 registros** para explorar personagens, planetas, filmes, espécies, naves e veículos. A aplicação combina uma interface responsiva com busca, filtros, fichas relacionadas e uma coleção pessoal de favoritos.
 
-## Começar
+O catálogo e os recursos visuais são servidos localmente. A navegação não depende de chamadas à API da SWAPI, e os favoritos ficam salvos no navegador.
 
-É necessário **Node.js 22.12 ou superior**.
+## Funcionalidades
+
+- **Seis categorias:** fichas com dados técnicos, valores formatados em português e links entre registros relacionados.
+- **Busca global:** acesso pela navegação ou pelo atalho `Ctrl+K` / `⌘K`, com fechamento por `Esc`.
+- **Busca no catálogo:** pesquisa sem diferenciar acentos ou maiúsculas, incluindo títulos originais dos filmes e modelos de naves e veículos.
+- **Filtros e visualização:** filtros por categoria, ordenação por nome, paginação de 12 registros e modos de cards ou lista. O estado da consulta fica na URL.
+- **Minha coleção:** adição e remoção de favoritos, busca e filtro por categoria, com persistência em `localStorage` e sincronização entre abas da mesma origem.
+- **Interface responsiva:** menu móvel, navegação por teclado, suporte a movimento reduzido e tratamento de buscas vazias, imagens indisponíveis e rotas inválidas.
+
+## Tecnologias
+
+| Área                    | Tecnologias                                        |
+| ----------------------- | -------------------------------------------------- |
+| Interface               | React 19, TypeScript e CSS                         |
+| Navegação               | React Router 7                                     |
+| Desenvolvimento e build | Vite 8                                             |
+| Ícones e fontes         | Lucide, Inter, Barlow Condensed e Star Jedi        |
+| Testes                  | Vitest, Playwright e axe-core                      |
+| Formatação              | Prettier                                           |
+| Publicação              | Hospedagem estática, com configuração para Netlify |
+
+## Executar localmente
+
+### Pré-requisitos
+
+- **Node.js 22.12 ou superior**. O arquivo [`.nvmrc`](.nvmrc) define a versão 24, também usada na configuração do Netlify.
+- **npm**, com instalação das dependências a partir do `package-lock.json`.
+- **Git**, caso o projeto seja obtido por clonagem.
+
+### Instalação
 
 ```sh
+git clone https://github.com/RafaelBiatoAzevedo/world-starwars.git
+cd world-starwars
 npm ci
 npm run dev
 ```
 
-Abra o endereço exibido no terminal, normalmente `http://localhost:5173`. `npm start` também inicia o ambiente de desenvolvimento.
+Se você usa nvm, execute `nvm use` na pasta do projeto antes de instalar as dependências.
+
+Abra o endereço exibido no terminal, normalmente `http://localhost:5173`. O comando `npm start` também inicia o servidor de desenvolvimento.
+
+Não é necessário configurar variáveis de ambiente, chave de API ou backend para executar a aplicação.
+
+### Build de produção
 
 ```sh
-npm run build    # Verifica os tipos e gera dist/
-npm run preview  # Serve a versão de produção
+npm run build
+npm run preview
 ```
 
-Em uma hospedagem estática, configure as rotas desconhecidas para servir `index.html`. Isso permite abrir e atualizar diretamente endereços como `/characters/1` e `/planets/1`.
+O build verifica os tipos e gera os arquivos estáticos em `dist/`. O comando de prévia permite conferir o resultado localmente no endereço informado pelo Vite.
 
-## Publicar no Netlify
+## Comandos disponíveis
 
-A configuração está versionada em `netlify.toml` e `.nvmrc`:
+| Comando                | Descrição                                                  |
+| ---------------------- | ---------------------------------------------------------- |
+| `npm run dev`          | Inicia o servidor de desenvolvimento.                      |
+| `npm start`            | Alternativa a `npm run dev`.                               |
+| `npm run build`        | Verifica os tipos e gera o build em `dist/`.               |
+| `npm run preview`      | Serve o build de produção para conferência local.          |
+| `npm run typecheck`    | Verifica os tipos sem gerar arquivos.                      |
+| `npm test`             | Executa os testes unitários uma vez.                       |
+| `npm run test:e2e`     | Executa os testes de navegador com Playwright.             |
+| `npm run data:refresh` | Atualiza a cópia local do catálogo a partir da SWAPI.      |
+| `npm run format`       | Formata os arquivos cobertos pela configuração do projeto. |
+| `npm run format:check` | Verifica a formatação sem alterar arquivos.                |
 
-- **Node.js:** 24.
-- **Gerenciador:** npm, usando `package-lock.json`.
-- **Comando de build:** `npm run build`.
-- **Diretório publicado:** `dist`.
-- **Rotas da aplicação:** redirecionamento interno para `/index.html`, preservando os arquivos estáticos existentes.
+## Catálogo e rotas
 
-O arquivo `.nvmrc` também permite selecionar a mesma versão localmente com `nvm use`. No Netlify, ele tem precedência sobre uma versão antiga configurada no painel, conforme a [documentação de versões do Node.js](https://docs.netlify.com/build/configure-builds/manage-dependencies/#node-js-and-javascript).
+| Categoria   | Registros na base versionada | Rota          |
+| ----------- | ---------------------------: | ------------- |
+| Personagens |                           82 | `/characters` |
+| Planetas    |                           60 | `/planets`    |
+| Filmes      |                            6 | `/films`      |
+| Espécies    |                           37 | `/species`    |
+| Naves       |                           36 | `/starships`  |
+| Veículos    |                           39 | `/vehicles`   |
+| **Total**   |                      **260** |               |
 
-Depois de enviar esses arquivos ao repositório conectado ao Netlify, inicie um novo deploy. A configuração versionada substitui o comando antigo `yarn build` e a pasta `build` definidos no painel.
+A página inicial fica em `/`, e a coleção em `/collection`. As fichas seguem o formato `/:category/:id`, como `/characters/1` e `/planets/1`. A base de filmes abrange os episódios I a VI.
 
-## O que está pronto
+A coleção pertence ao navegador e dispositivo utilizados, sem conta ou sincronização em nuvem. Se o armazenamento estiver bloqueado, os favoritos ficam disponíveis apenas durante a visita, com um aviso na interface.
 
-- **Seis categorias completas:** 82 personagens, 60 planetas, 6 filmes, 37 espécies, 36 naves e 39 veículos.
-- Busca por nome, insensível a acentos e maiúsculas. Os filmes também podem ser encontrados pelo título original.
-- Filtros específicos de cada categoria, ordenação, paginação e modos de visualização em cards ou lista.
-- Fichas com dados técnicos, valores formatados em português e conexões navegáveis entre os registros.
-- Busca global pelo botão da navegação ou pelo atalho **Ctrl+K / ⌘K**, com fechamento por **Esc**.
-- Favoritos persistidos em `localStorage`, sincronizados entre abas, com busca e filtro por categoria.
-- Layouts para celular, tablet e desktop, menu móvel, navegação por teclado e suporte a movimento reduzido.
-- Tratamento de endereços inválidos, buscas sem resultados, imagens indisponíveis e armazenamento bloqueado.
-- Imagens WebP e fontes locais; o funcionamento do catálogo não depende de requisições a serviços externos durante a navegação.
+### Atualizar os dados
 
-A coleção pertence ao navegador e dispositivo utilizados. Não há conta, sincronização em nuvem ou backend.
-
-## Dados e imagens
-
-Os **260 registros** vêm da [SWAPI](https://swapi.info/documentation). A base inclui os episódios I a VI. Valores desconhecidos são apresentados como tais, sem inventar informações.
-
-O catálogo fica versionado em `src/data/snapshot.json`. Para atualizá-lo com acesso à internet:
+Os dados da [SWAPI](https://swapi.info) ficam versionados em [`src/data/snapshot.json`](src/data/snapshot.json). Para atualizar a base, é necessário acesso à internet:
 
 ```sh
 npm run data:refresh
@@ -60,32 +98,15 @@ npm test
 npm run build
 ```
 
-A atualização valida as seis respostas antes de substituir o arquivo, preservando o catálogo anterior caso uma chamada falhe. As contagens exibidas na aplicação são calculadas a partir dos dados.
+O script [`scripts/refresh-data.mjs`](scripts/refresh-data.mjs) consulta as seis categorias e valida as respostas antes de substituir o arquivo. Se uma consulta falhar, o catálogo anterior é preservado. As contagens exibidas pela aplicação são calculadas a partir dos dados.
 
-As imagens em uso estão em WebP; os arquivos antigos sem referência e as cópias duplicadas foram removidos. Quando vários registros usam a mesma imagem, o catálogo compartilha um único arquivo. Imagens adicionais foram obtidas do [Star Wars Databank](https://www.starwars.com/databank); seus endereços e páginas de origem estão em `public/images/credits.json`. Registros sem imagem usam uma composição visual da respectiva categoria.
+### Imagens e fontes
 
-Star Wars e seus personagens pertencem à Lucasfilm Ltd. Este é um projeto de fã, sem fins comerciais.
+As imagens utilizadas estão em WebP, distribuídas entre `public/images/` e `src/shared/assets/images/`. O mapeamento de imagens adicionais fica em [`src/data/images.json`](src/data/images.json), e os créditos com as páginas e os arquivos de origem estão em [`public/images/credits.json`](public/images/credits.json).
 
-## Organização
+Registros sem imagem usam uma composição visual da categoria. As fontes também são servidas localmente.
 
-```text
-src/
-  components/  Navegação, busca global, cards e botões de coleção
-  context/     Estado da coleção e persistência defensiva
-  data/        Tipos, catálogo, imagens e cópia local dos dados
-  lib/         Busca, filtros, formatação e relacionamentos
-  pages/       Início, catálogo, coleção, detalhes e página 404
-  shared/      Imagens WebP dos personagens e filmes
-  styles.css   Identidade visual e layouts responsivos
-scripts/
-  refresh-data.mjs
-tests/
-  app.spec.ts  Testes de navegação e acessibilidade no navegador
-```
-
-**Tecnologias:** React 19, TypeScript, Vite, React Router e Lucide. A antiga configuração de Create React App, os provedores acoplados e as requisições repetidas foram substituídos por componentes compartilhados e um catálogo tipado.
-
-## Verificações
+## Testes e qualidade
 
 ```sh
 npm run typecheck
@@ -93,25 +114,66 @@ npm test
 npm run format:check
 ```
 
-Os testes unitários verificam a integridade dos dados, as referências entre registros, a busca, a filtragem, a ordenação, a formatação e a recuperação de favoritos inválidos.
+Os testes unitários cobrem integridade do catálogo, referências entre registros, busca, filtros, ordenação, formatação de valores e recuperação de favoritos inválidos.
 
-Para os testes de navegador:
+Para executar os testes de navegador, instale o Chromium do Playwright após instalar as dependências:
 
 ```sh
 npx playwright install chromium
 npm run test:e2e
 ```
 
-Também é possível usar uma instalação existente do Chrome:
+Também é possível indicar uma instalação existente do Chrome. Em Linux, por exemplo, ajuste o caminho conforme sua instalação:
 
 ```sh
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/google-chrome npm run test:e2e
 ```
 
-O Playwright inicia uma prévia na porta **5188**. A suíte cobre as seis seções, filtros, paginação, detalhes relacionados, persistência de favoritos, navegação móvel, foco no modal e páginas 404. Também verifica ausência de rolagem horizontal entre **320 e 1440 px** e executa uma auditoria automática de acessibilidade WCAG AA com axe. Uma auditoria automática não substitui avaliação manual com tecnologias assistivas.
+O Playwright inicia o servidor de desenvolvimento em `http://127.0.0.1:5188` e executa os projetos de desktop e celular. A suíte cobre navegação, busca, filtros, paginação, detalhes relacionados, persistência de favoritos, foco do modal e páginas 404. Também verifica rolagem horizontal em larguras de 320 a 1440 px e executa auditorias automáticas de acessibilidade com axe-core.
 
-As capturas para revisão visual ficam em `artifacts/`; relatórios e rastros de falhas ficam em `test-results/`. Esses arquivos não são versionados.
+As capturas de revisão visual ficam em `artifacts/`; capturas e rastros de falhas ficam em `test-results/`. Esses diretórios são ignorados pelo Git.
 
-```sh
-npm run format # Formata o código-fonte
+## Estrutura do projeto
+
+```text
+world-starwars/
+├── public/                 # Favicon, manifesto e imagens públicas
+├── scripts/
+│   └── refresh-data.mjs     # Atualização do catálogo local
+├── src/
+│   ├── components/         # Layout, busca global, cards e ícones
+│   ├── context/            # Estado e persistência da coleção
+│   ├── data/               # Tipos, catálogo, imagens e snapshot da SWAPI
+│   ├── fonts/              # Fonte Star Jedi
+│   ├── lib/                # Busca, filtros, formatação e testes unitários
+│   ├── pages/              # Início, catálogo, coleção, detalhes e página 404
+│   ├── shared/assets/      # Imagens de personagens e filmes
+│   ├── App.tsx             # Rotas e tratamento de erros
+│   ├── main.tsx            # Entrada da aplicação
+│   └── styles.css          # Estilos e layouts responsivos
+├── tests/                  # Testes de navegador e acessibilidade
+├── .nvmrc                  # Versão do Node.js para desenvolvimento
+├── netlify.toml            # Build e redirecionamento de rotas no Netlify
+├── playwright.config.ts    # Configuração dos testes de navegador
+└── vite.config.ts          # Configuração do Vite e do Vitest
 ```
+
+## Publicação
+
+O projeto pode ser publicado como uma aplicação estática. A configuração do Netlify está versionada em [`netlify.toml`](netlify.toml):
+
+| Configuração             | Valor                                  |
+| ------------------------ | -------------------------------------- |
+| Node.js                  | `24`                                   |
+| Gerenciador de pacotes   | npm                                    |
+| Comando de build         | `npm run build`                        |
+| Diretório publicado      | `dist`                                 |
+| Redirecionamento interno | `/*` → `/index.html`, com status `200` |
+
+Em outra hospedagem, configure o fallback das rotas da aplicação para `index.html`, preservando os arquivos estáticos. Isso permite acessar ou atualizar diretamente páginas como `/characters/1`.
+
+## Créditos
+
+Dados provenientes da [SWAPI](https://swapi.info). As origens das imagens adicionais estão registradas no [arquivo de créditos](public/images/credits.json), incluindo referências ao Star Wars Databank.
+
+Star Wars e seus personagens pertencem à Lucasfilm Ltd. Este é um projeto de fã, sem fins comerciais.
